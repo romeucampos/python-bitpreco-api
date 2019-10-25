@@ -1,44 +1,21 @@
-# coding: utf-8
-
-# The MIT License (MIT)
-#
-# Copyright 2016 Alan Fachini <https://github.com/alfakini/python-mercadobitcoin>
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy of
-# this software and associated documentation files (the "Software"), to deal in
-# the Software without restriction, including without limitation the rights to
-# use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-# the Software, and to permit persons to whom the Software is furnished to do so,
-# subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-# FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-# IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 import setuptools
 from distutils.core import setup
 
 INSTALL_REQUIREMENTS = ['requests']
 
 setup(
-    name = 'bitcointrade',
-    description = 'A Python wrapper for Bitcointrade API',
-    version = '0.7.0',
-    packages = ['bitcointrade'],
-    author = 'Leandro Trindade',
-    author_email = 'just4span@gmail.com',
-    url = 'https://github.com/Megarushing/python-bitcointrade-api.git',
-    download_url = 'https://github.com/Megarushing/python-bitcointrade-api/tarball/0.7.0',
-    keywords = ['bitcoin', 'litecoin', 'ethereum', 'bitcoin cash','bitcointrade', 'trade', 'orderbook', 'cryptocurrency','ticker'],
+    name = 'bitpreco',
+    description = 'A Python wrapper for Bitpreco API',
+    version = '0.2.0',
+    packages = ['bitpreco'],
+    author = 'Romeu Campos',
+    author_email = 'romeu.campos@hotmail.com',
+    url = 'https://github.com/romeucampos/python-bitpreco-api',
+    download_url = 'https://github.com/romeucampos/python-bitpreco-api/archive/master.zip',
+    keywords = ['bitcoin', 'bitpreco', 'trade', 'orderbook', 'cryptocurrency','ticker'],
     install_requires=INSTALL_REQUIREMENTS,
     classifiers = [
-        'Development Status :: 4 - Beta',
+        'Development Status :: Beta',
         'Environment :: Console',
         'Intended Audience :: Customer Service',
         'Intended Audience :: Financial and Insurance Industry',
@@ -47,7 +24,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.7',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Utilities'
