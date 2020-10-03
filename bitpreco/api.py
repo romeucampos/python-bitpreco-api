@@ -5,8 +5,8 @@ from .erros import ApiError
 
 
 class Api:   
-    def __init__(self, api_key='', signature=''):
-        self.url = 'https://api.bitpreco.com/btc-brl/'
+    def __init__(self, api_key='', signature='', pairs='btc'):
+        self.url = f'https://api.bitpreco.com/{pairs}-brl/'
         self.host = 'https://api.bitpreco.com/trading/'
         self.headers = {'Content-type': 'application/json'}
         self.keys = signature + api_key
@@ -56,11 +56,11 @@ class Api:
     def open_orders(self):
         return self.__post({"cmd": "open_orders", "auth_token": self.keys})
 
-    def buy(self, price, amount):
-        return self.__post({"cmd":"buy", "market":"BTC-BRL", "price": price, "amount": amount, "auth_token": self.keys})
+    def buy(self, price, amount, market="BTC-BRL"):
+        return self.__post({"cmd":"buy", "market": market, "price": price, "amount": amount, "auth_token": self.keys})
 
-    def sell(self, price, amount):
-        return self.__post({"cmd":"sell", "market":"BTC-BRL", "price": price, "amount": amount, "auth_token": self.keys})
+    def sell(self, price, amount, market="BTC-BRL"):
+        return self.__post({"cmd":"sell", "market": market, "price": price, "amount": amount, "auth_token": self.keys})
 
     def order_cancel(self, order_id):
         return self.__post({"cmd":"order_cancel", "order_id": order_id, "auth_token": self.keys})
@@ -70,4 +70,4 @@ class Api:
 
     def order_status(self, order_id):
         return self.__post({"cmd":"order_status", "order_id": order_id, "auth_token": self.keys})
-    
+        

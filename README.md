@@ -47,6 +47,24 @@ bitp.order_cancel(order_id="<order_id>")
 bitp.order_status(order_id="<order_id>")
 ```
 
+Add pairs USDT and ETH:
+
+```python
+import bitpreco
+bitp = bitpreco.Api("<api_key>", "<signature>", paris='usdt')
+
+bitp.ticker()
+bitp.orderbook()
+bitp.trades()
+bitp.exchanges()
+bitp.balance()
+bitp.open_orders()
+bitp.buy(price=30200, amount=0.01, market='USDT-BRL')
+bitp.sell(price=30100, amount=0.01, market='USDT-BRL')
+bitp.all_orders_cancel()
+bitp.order_cancel(order_id="<order_id>")
+bitp.order_status(order_id="<order_id>")
+```
 
 ## References
 
