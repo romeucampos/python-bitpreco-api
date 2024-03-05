@@ -5,11 +5,12 @@ from .erros import ApiError
 
 
 class Api:   
-    def __init__(self, api_key='', signature='', pairs='btc'):
+    def __init__(self, api_key='', signature='', pairs='btc', params={}):
         self.url = f'https://api.bitpreco.com/{pairs}-brl/'
         self.host = 'https://api.bitpreco.com/trading/'
         self.headers = {'Content-type': 'application/json'}
         self.keys = signature + api_key
+        self.kwargs = params
 
     def __check_response_public(self, response):
         try:
@@ -31,11 +32,11 @@ class Api:
         return rsp
      
     def __get(self, data):
-        response = requests.get(self.url + data)
+        response = requests.get(self.url + data, **self.kwargs)
         return self.__check_response_public(response)
         
     def __post(self, data):
-        response = requests.post(self.host, data=json.dumps(data), headers=self.headers)
+        response = requests.post(self.host, data=json.dumps(data), headers=self.headers, **self.kwargs)
         return self.__check_response_private(response)
 
     def ticker(self):
@@ -55,6 +56,9 @@ class Api:
 
     def open_orders(self):
         return self.__post({"cmd": "open_orders", "auth_token": self.keys})
+
+    def executed_orders(self):
+        return self.__post({"cmd": "executed_orders", "auth_token": self.keys})
 
     def buy(self, price, amount, market="BTC-BRL"):
         return self.__post({"cmd":"buy", "market": market, "price": price, "amount": amount, "auth_token": self.keys})
